@@ -13,7 +13,7 @@ namespace ToDoListWPF.Command
         public override void Execute(object? parameter)
         {
             var Task = (TaskViewModel)parameter;
-            Task.ToDoTask = "Niggers";
+            Task.ToDoTask = "Text";
         }
     }
 }
