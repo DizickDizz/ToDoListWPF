@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDoListWPF.ViewModels;
 
 namespace ToDoListWPF.Command
 {
-    public class IsCheckedCommand : CommandBase
+    internal class EditTaskCommand : CommandBase
     {
         public override void Execute(object? parameter)
         {
-
-            throw new NotImplementedException();
+            var Task = (TaskViewModel)parameter;
+            Task.ToDoTask = "Niggers";
         }
     }
 }

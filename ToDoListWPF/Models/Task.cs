@@ -7,8 +7,8 @@ namespace ToDoListWPF.Models
 {
     public class ToDo
     {
-        public string ToDoTask { get; }
-        public bool State { get; }
+        public string ToDoTask { get; set; }
+        public bool State { get; set; }
         public ToDo(string toDoTask, bool state)
         {
             ToDoTask = toDoTask;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ToDoListWPF.Models
 {
@@ -23,6 +24,10 @@ namespace ToDoListWPF.Models
         public void AddNewTask(ToDo toDo)
         {
             _toDos.Add(toDo);
+        }
+        public void RemoveTask(ToDo toDo)
+        {
+            _toDos.Remove(toDo);
         }
     }
 }

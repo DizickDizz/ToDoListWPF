@@ -23,8 +23,7 @@ namespace ToDoListWPF.Command
         }
         private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(AddTaskViewModel.ToDoTask) ||
-                e.PropertyName == nameof(AddTaskViewModel.State))
+            if (e.PropertyName == nameof(AddTaskViewModel.ToDoTask))
             {
                 OnCanExecutedChanged();
             }
@@ -37,7 +36,7 @@ namespace ToDoListWPF.Command
 
         public override void Execute(object? parameter)
         {
-            ToDo toDo = new ToDo(_addTaskViewModel.ToDoTask, _addTaskViewModel.State);
+            ToDo toDo = new ToDo(_addTaskViewModel.ToDoTask, false);
              _toDoTasks.AddNewTask(toDo);
             _addTaskViewModel.UpdateToDoList();
         }
