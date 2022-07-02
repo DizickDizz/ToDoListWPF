@@ -27,7 +27,8 @@ namespace ToDoListWPF.Models
         }
         public void RemoveTask(ToDo toDo)
         {
-            _toDos.Remove(toDo);
+            var needsToBeDeleted = _toDos.FirstOrDefault(t => t.ToDoTask == toDo.ToDoTask);
+            _toDos.Remove(needsToBeDeleted);
         }
     }
 }

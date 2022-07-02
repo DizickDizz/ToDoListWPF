@@ -25,6 +25,8 @@ namespace ToDoListWPF.Command
         {
             TaskViewModel addTaskViewModel = (TaskViewModel)parameter;
             ToDo toDo = new ToDo(addTaskViewModel.ToDoTask, addTaskViewModel.State);
+
+
             _toDoTasks.RemoveTask(toDo);
             _addTaskViewModel.UpdateToDoList();
         }
