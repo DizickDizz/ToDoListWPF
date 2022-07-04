@@ -13,11 +13,9 @@ namespace ToDoListWPF.ViewModels
 {
     public class AddTaskViewModel : ViewModelBase
     {
-        private readonly ObservableCollection<TaskViewModel> _toDo;
-        private readonly ToDoList _toDoList;
+        private readonly ToDoList _toDo;
 
-
-        public IEnumerable<TaskViewModel> ToDos => _toDo;
+        public IEnumerable<TaskViewModel> ToDos => _toDo.GetAllToDos;
 
         public TaskViewModel _selectedItem { get; set; }
         public TaskViewModel SelectedItem
@@ -33,26 +31,12 @@ namespace ToDoListWPF.ViewModels
             set     { _toDoTask = value; OnPropertyChanged(nameof(ToDoTask)); }
         }
 
-        public void UpdateToDoList()
-        {
-            _toDo.Clear();
-
-            foreach (ToDo toDo in _toDoList.GetAllToDos())
-            {
-                TaskViewModel taskViewModel = new TaskViewModel(toDo);
-                _toDo.Add(taskViewModel);
-                SelectedItem = taskViewModel;
-            }
-        }
         public AddTaskViewModel(ToDoList toDoList)
         {
-            _toDoList = toDoList;
-            _toDo = new ObservableCollection<TaskViewModel>();
+            _toDo = toDoList;
             ToDoAddCommand = new ToDoAddCommand(this, toDoList);
             RemoveTaskCommand = new RemoveTaskCommand(toDoList,this);
             EditTaskCommand = new EditTaskCommand();
-
-            UpdateToDoList();
 
         }
         public ICommand ToDoAddCommand { get; }

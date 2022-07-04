@@ -23,15 +23,20 @@ namespace ToDoListWPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            _toDoList.Load();
             MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel(_toDoList)
             };
             MainWindow.Show();
+            AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
 
             base.OnStartup(e);
         }
 
-
+        private void CurrentDomain_ProcessExit(object? sender, EventArgs e)
+        {
+            _toDoList.Save();
+        }
     }
 }

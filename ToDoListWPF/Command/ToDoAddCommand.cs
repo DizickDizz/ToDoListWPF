@@ -37,8 +37,8 @@ namespace ToDoListWPF.Command
         public override void Execute(object? parameter)
         {
             ToDo toDo = new ToDo(_addTaskViewModel.ToDoTask, false);
-             _toDoTasks.AddNewTask(toDo);
-            _addTaskViewModel.UpdateToDoList();
+            TaskViewModel taskViewModel = new TaskViewModel(toDo);
+             _toDoTasks.AddNewTask(taskViewModel);
         }
     }
 }
